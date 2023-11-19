@@ -62,15 +62,14 @@ public class FMController implements Initializable{
         }
         String editedText = textArea.getText();
         if(!saver.saveFile(tempFile,editedText)){
-            System.out.println("File not saved!\n Filepath: " + tempFile);
-
+           lblInfo.setText("Файл не сохранен!");
         }else {
             clearText();
             textArea.setDisable(true);
             fileOpened = false;
-            lblInfo.setText("Файл не выбран");
+            lblInfo.setText("Файл сохранен!");
             tempFile = null;
-            System.out.println("File saved!");
+            
         }
     }
     @FXML
