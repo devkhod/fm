@@ -4,8 +4,6 @@ import by.me.fm.logic.FileLogicImpl;
 import by.me.fm.logic.LogicException;
 import by.me.fm.logic.LogicProvider;
 
-import java.io.File;
-
 
 public class Saver {
     private final LogicProvider logicProvider = LogicProvider.getINSTANCE();

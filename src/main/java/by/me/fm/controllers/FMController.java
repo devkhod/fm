@@ -18,14 +18,10 @@ public class FMController implements Initializable{
     private TextArea textArea;
     @FXML
     private Label lblInfo;
-    @FXML
-    private Button createBtn;
-    @FXML
-    private Button editBtn;
+
     @FXML
     private Button saveBtn;
-    @FXML
-    private Button removeBtn;
+
     private FileChooser fileChooser;
     private boolean fileOpened;
     private final Saver saver = new Saver();
