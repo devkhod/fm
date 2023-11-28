@@ -12,13 +12,10 @@ public class FileLogicImpl implements AppLogic{
     @Override
     public boolean creatFile(String fileName) throws LogicException {
         try {
-            if(fileDao.create(fileName)){
-                return true;
-            }
+            return fileDao.create(fileName);
         } catch (DaoException e) {
             throw new LogicException(e);
         }
-        return false;
     }
 
     @Override

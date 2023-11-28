@@ -4,20 +4,16 @@ import by.me.fm.utils.DataValidator;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.text.ParseException;
 
 public class FileDaoImpl implements FileDao{
     public FileDaoImpl() {
     }
-    private final String DELIM = "\n";
     @Override
     public boolean create(String fileName) throws DaoException {
         if(DataValidator.validate(fileName)){
             try {
                 File newFile = new File(fileName);
-                if(newFile.createNewFile()) {
-                    return true;
-                }
+                return newFile.createNewFile();
             }catch(IOException e){
                 throw new DaoException(e);
             }
@@ -33,6 +29,7 @@ public class FileDaoImpl implements FileDao{
                 BufferedWriter fr = new BufferedWriter(writer)) {
 
                 fr.write(data);
+
             } catch (IOException e) {
                 throw new DaoException(e);
             }
@@ -53,6 +50,7 @@ public class FileDaoImpl implements FileDao{
 
     @Override
     public String raed(File fileName) throws DaoException {
+        final String ls = "\n";
         if(fileName != null){
             String result;
             try (BufferedReader br = new BufferedReader(new FileReader(fileName.getPath()))){
@@ -60,7 +58,7 @@ public class FileDaoImpl implements FileDao{
                 StringBuilder sb = new StringBuilder();
                 String line;
                 while((line = br.readLine()) != null){
-                    sb.append(line).append(DELIM);
+                    sb.append(line).append(ls);
                 }
                 result = sb.toString();
             } catch (IOException e) {

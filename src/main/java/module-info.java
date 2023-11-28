@@ -8,4 +8,6 @@ module by.me.fm {
 
     opens by.me.fm to javafx.fxml;
     exports by.me.fm;
+    exports by.me.fm.controllers;
+    opens by.me.fm.controllers to javafx.fxml;
 }
